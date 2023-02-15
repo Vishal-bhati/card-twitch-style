@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>card</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">I know exactly what I'm doing</h3>
+              <h4 class="card-subtitle"></h4>
+            </div>
+            <i class="fa-solid fa-hat-witch card-icon"></i>
+          </div>
+          
+    </body>
+    <script>
+        const subtitle = document.getElementsByClassName("card-subtitle")[0];
+
+const createWord = (text, index) => {
+  const word = document.createElement("span");
+  
+  word.innerHTML = `${text} `;
+  
+  word.classList.add("card-subtitle-word");
+  
+  word.style.transitionDelay = `${index * 40}ms`;
+  
+  return word;
+}
+
+const addWord = (text, index) => subtitle.appendChild(createWord(text, index));
+
+const createSubtitle = text => text.split(" ").map(addWord);
+
+createSubtitle("But in a much more real sense, I have no idea what I'm doing.");
+    </script>
+
+</html>
